@@ -44,6 +44,21 @@ async function main () {
             res.send(error.message)
         }
     })
+
+    app.post('/login', async (req, res) => {
+        const user = await User.findOne({email: req.body.username})
+        if (user) {
+            if(user.password == req.body.password) {
+                res.render('secrets')
+            }
+            else {
+                res.send('Password is incorrect')
+            }
+        }
+        else {
+            res.send('User not found')
+        }
+    })
 }
 main()
     app.listen(8080, () => {
