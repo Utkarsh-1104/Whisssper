@@ -15,6 +15,9 @@ app.get('/login', (req, res) => {
     res.render('login')
 })
 
+app.get('/register', (req, res) => {
+    res.render('register')
+})
 app.listen(8080, () => {
     console.log('Server is running on port : http://localhost:8080');
 })
