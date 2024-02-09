@@ -3,6 +3,7 @@ const express = require("express")
 const bodyParser = require('body-parser')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
+const encrypt = require('mongoose-encryption')
 
 const app = express()
 app.set('view engine', 'ejs')
@@ -13,11 +14,14 @@ const URI = process.env.MONGODB_URI
 async function main () {
     mongoose.connect(URI)
     
-    const userSchema = {
+    const userSchema = new mongoose.Schema({
         email: String,
         password: String
-    }
+    })
     
+    // const secret = process.env.SECRET
+    // userSchema.plugin(encrypt, {secret: secret, encryptedFields: ['password']})
+
     const User = new mongoose.model('User', userSchema)
     
     app.get('/', (req, res) => {
@@ -48,7 +52,7 @@ async function main () {
     app.post('/login', async (req, res) => {
         const user = await User.findOne({email: req.body.username})
         if (user) {
-            if(user.password == req.body.password) {
+            if(user.password === req.body.password) {
                 res.render('secrets')
             }
             else {
