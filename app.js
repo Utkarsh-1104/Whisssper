@@ -3,8 +3,10 @@ const express = require("express")
 const bodyParser = require('body-parser')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
-//const encrypt = require('mongoose-encryption')
-const md5 = require('md5')
+//const encrypt = require('mongoose-encryption')        //encrypting the password
+//const md5 = require('md5')                //hashing the password using md5
+const bcrypt = require('bcrypt')
+const saltRounds = 10
 
 const app = express()
 app.set('view engine', 'ejs')
@@ -38,27 +40,32 @@ async function main () {
     })
     
     app.post('/register', async (req, res) => {
-        const newUser = new User({
-            email: req.body.username,
-            password: md5(req.body.password)
+        bcrypt.hash(req.body.password, saltRounds, async function(err, hash) {
+            // Store hash in your password DB.
+            const newUser = new User({
+                email: req.body.username,
+                password: hash
+            })
+            try {
+                await newUser.save()
+                res.render('secrets')  
+            } catch (error) {
+                res.send(error.message)
+            }
         })
-        try {
-            await newUser.save()
-            res.render('secrets')  
-        } catch (error) {
-            res.send(error.message)
-        }
     })
 
     app.post('/login', async (req, res) => {
         const user = await User.findOne({email: req.body.username})
         if (user) {
-            if(user.password === md5(req.body.password)) {
-                res.render('secrets')
-            }
-            else {
-                res.send('Password is incorrect')
-            }
+            bcrypt.compare(req.body.password, user.password, function(err, result) {
+                if(result === true) {
+                    res.render('secrets')
+                }
+                else {
+                    res.send('Password is incorrect')
+                }
+            });
         }
         else {
             res.send('User not found')
