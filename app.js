@@ -19,8 +19,8 @@ async function main () {
         password: String
     })
     
-    // const secret = process.env.SECRET
-    // userSchema.plugin(encrypt, {secret: secret, encryptedFields: ['password']})
+    const secret = process.env.SECRET
+    userSchema.plugin(encrypt, {secret: secret, encryptedFields: ['password']})
 
     const User = new mongoose.model('User', userSchema)
     
