@@ -35,6 +35,7 @@ async function main () {
         email: String,
         password: String,
         googleId: String,
+        secret: String
     })
     //encrypting the password using mongoose-encryption
     // const secret = process.env.SECRET
@@ -104,6 +105,29 @@ async function main () {
         }
         else {
             res.redirect('/login')
+        }
+    })
+
+    app.get('/submit', (req, res) => {
+        if(req.isAuthenticated()) {
+            res.render('submit')
+        }
+        else {
+            res.redirect('/login')
+        }
+    })
+
+    app.post('/submit', async (req, res) => {
+        const submittedSecret = req.body.secret
+        try {
+            foundUser = await User.findById(req.user.id)
+            if(foundUser) {
+                foundUser.secret = submittedSecret
+                foundUser.save()
+                res.redirect('/secrets')
+            }
+        } catch (error) {
+            res.send(error.message)
         }
     })
 
