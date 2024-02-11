@@ -2,6 +2,7 @@ body {
   background-color: #141414;
   margin: 0%;
   padding: 0%;
+  overflow-x: hidden;
 }
 .navbar {
   display: flex;
@@ -70,13 +71,13 @@ hr {
 .hero-sec {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding-top: 10rem;
+  gap: 3.5rem;
 }
 .hero-img {
   width: 70rem;
-  height: 35rem;
+  height: 34rem;
   border-radius: 1rem;
 }
 .hero-frame {
@@ -84,7 +85,7 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
   z-index: 1;
   position: absolute;
   top: 22rem;
@@ -99,16 +100,84 @@ hr {
   margin: 0;
 }
 .hero-desc {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #fff;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   margin: 0;
 }
 .hero-frame .hero-btn {
   width: 10rem;
   margin-top: 2rem;
+}
+.hero-btn:hover {
+  background-color: #2f9e6e;
+}
+.about {
+  width: 70rem;
+}
+.about-title {
+  font-size: 2.7rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+.about-desc {
+  width: 53rem;
+  text-align: justify;
+  line-height: 1.9rem;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+.features {
+  width: 70rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+}
+.feature-img {
+  width: 22rem;
+  height: 18rem;
+  border-radius: 1rem;
+}
+.feature-title {
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+.feature-desc {
+  width: 22rem;
+  font-size: 1rem;
+  color: #b3b3b3;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+.start-title {
+  font-size: 2.7rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  margin: 0;
+}
+.start .hero-btn {
+  width: 10rem;
+}
+.start .hero-btn:hover {
+  background-color: #2f9e6e;
 }
 @media screen and (max-width: 750px) {
   .whisper1 {
