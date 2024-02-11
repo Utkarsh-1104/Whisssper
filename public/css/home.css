@@ -1,0 +1,125 @@
+body {
+  background-color: #141414;
+  margin: 0%;
+  padding: 0%;
+  overflow: hidden;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 95%;
+  padding-left: 1.5rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo-img {
+  width: 2rem;
+  height: 2rem;
+  transform: rotate(270deg);
+}
+.logo-title {
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: Inter;
+  font-weight: 500;
+}
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+.login, .signup {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 0.8rem;
+  background-color: #38E077;
+  border: none;
+}
+.login:hover {
+  background-color: #2f9e6e;
+
+}
+.signup {
+  background-color: #292929;
+  color: #fff;
+}
+.signup:hover {
+  background-color: #1f1f1f;
+}
+a {
+  text-decoration: none;
+  color: #141414;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.signup a {
+  color: #fff;
+}
+hr {
+  border: 1px solid #3a3a3a;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 5rem;
+}
+@media screen and (max-width: 750px) {
+  .whisper1 {
+    font-size: 2.38rem;
+    line-height: 3rem;
+  }
+  .why-use-whisper {
+    font-size: var(--font-size-10xl);
+    line-height: 2.25rem;
+  }
+  .depth-6-frame-1 {
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(226px, 392px));
+  }
+  .ready-to-start {
+    font-size: var(--font-size-10xl);
+    line-height: 2.25rem;
+  }
+}
+@media screen and (max-width: 675px) {
+  .depth-6-frame-03 {
+    padding-top: 6.88rem;
+    padding-bottom: 5.63rem;
+    box-sizing: border-box;
+  }
+  .depth-5-frame-01 {
+    gap: var(--gap-13xl);
+  }
+  .get-started-depth-frame {
+    gap: var(--gap-21xl);
+  }
+  .depth-6-frame-0-parent {
+    gap: var(--gap-37xl);
+  }
+  .depth-0-frame-0 {
+    gap: var(--gap-17xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .whisper1 {
+    font-size: var(--font-size-10xl);
+    line-height: 2.25rem;
+  }
+  .depth-6-frame-03 {
+    gap: var(--gap-13xl);
+    padding-left: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .why-use-whisper {
+    font-size: var(--font-size-3xl);
+    line-height: 1.69rem;
+  }
+  .depth-6-frame-1 {
+    grid-template-columns: minmax(226px, 1fr);
+  }
+  /* .ready-to-start { */
+}
