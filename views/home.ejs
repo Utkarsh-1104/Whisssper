@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/home.css" >
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
-  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"/>
+  <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
   <title>Whisper</title>
 </head>
 <body>
@@ -16,12 +16,15 @@
         <h3 class="logo-title">Whisper</h3>
       </div>
       <div class="nav-links">
-        <button class="login">
-          <a href="/login">Login</a>
-        </button>
-        <button class="signup">
+        <form action="/login" method="get">
+          <button class="login">Login</button>
+        </form>
+        <form action="/register" method="get">
+          <button class="signup">Sign Up</button>
+        </form>
+        <!-- <button class="signup">
           <a href="/register">Sign Up</a>
-        </button>
+        </button> -->
       </div>
     </div>
     <hr>
@@ -34,9 +37,9 @@
       <div class="hero-frame">
         <h1 class="hero-title">Whisper</h1>
         <p class="hero-desc">Share your secrets Anonymously.</p>
-        <button class="hero-btn">
-          <a href="/register">Get Started</a>
-        </button>
+        <form action="/register" method="get">
+          <button class="hero-btn">Get Started</button>
+        </form>
       </div>
     </div>
     <div class="about">
@@ -62,9 +65,9 @@
     </div>
     <div class="start">
       <h2 class="start-title">Ready to start whispering?</h2>
-      <button class="hero-btn">
-        <a href="/register">Get Started</a>
-      </button>
+      <form action="/register" method="get">
+        <button class="hero-btn">Get Started</button>
+      </form>
     </div>
   </section>
 </body>

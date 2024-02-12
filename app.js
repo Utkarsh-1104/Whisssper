@@ -80,7 +80,7 @@ async function main () {
         res.render('home')
     } )
 
-    app.get('/auth/google',
+    app.post('/auth/google',
         passport.authenticate('google', { scope: ['profile'] })
     );
 
