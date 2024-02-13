@@ -67,7 +67,7 @@ async function main () {
     passport.use(new GoogleStrategy({
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        callbackURL: "http://localhost:8080/auth/google/secrets"
+        callbackURL: "https://whisper-bed6.onrender.com/auth/google/secrets"
       },
       function(accessToken, refreshToken, profile, cb) {
         User.findOrCreate({ googleId: profile.id }, function (err, user) {
